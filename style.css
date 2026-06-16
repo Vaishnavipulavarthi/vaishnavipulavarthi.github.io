@@ -18,7 +18,7 @@ body {
 
 /* Header & Title Animation */
 header {
-    padding: 100px 20px 60px;
+    padding: 100px 20px 20px;
     text-align: center;
     border-bottom: 1px solid var(--border);
 }
@@ -29,8 +29,6 @@ h1 {
     margin: 0;
     letter-spacing: -0.02em;
 }
-
-/* The Emoji Animation */
 .smile-emoji {
     display: inline-block;
     animation: fadeInBounce 1.5s ease-out forwards;
@@ -72,7 +70,7 @@ h1 {
 main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 20px 20px;
 }
 
 section {
