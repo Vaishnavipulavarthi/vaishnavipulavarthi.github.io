@@ -3,81 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaishnavi Pulavarthi </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Vaishnavi Pulavarthi</title>
+    <style>
+        /* --- ALL YOUR STYLES LOAD DIRECTLY HERE NOW --- */
+        :root {
+            --bg-white: #ffffff;
+            --text-dark: #111111;
+            --text-grey: #555555;
+            --border-light: #eaeaea;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Header Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 60px 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin: 0 0 16px 0;
+        }
+
+        /* Smile Emoji Animation Setup */
+        .smile-emoji {
+            display: inline-block;
+            opacity: 0;
+            animation: bounceReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes bounceReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.7);
+            }
+            70% {
+                opacity: 1;
+                transform: translateY(-5px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-grey);
+            font-weight: 400;
+            margin: 0 0 32px 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* Buttons & CTA Links */
+        .btn {
+            display: inline-block;
+            background-color: var(--text-dark);
+            color: var(--bg-white);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-right: 20px;
+        }
+
+        .btn:hover {
+            background-color: var(--text-grey);
+        }
+
+        .link-secondary {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 2px;
+        }
+
+        .link-secondary:hover {
+            color: var(--text-grey);
+            border-color: var(--text-grey);
+        }
+
+        /* Grid Framework Layout */
+        .container {
+            padding: 0 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 40px;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #999999;
+        }
+
+        .lead-text {
+            font-size: 1.5rem;
+            line-height: 1.45;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* Technical Grid Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin: 0 0 8px 0;
+        }
+
+        .skill-category p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-grey);
+            margin: 0 0 20px 0;
+        }
+
+        /* Selected Project Layer Layout */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 40px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .project-row:first-of-type {
+            border-top: none;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--text-grey);
+        }
+
+        .project-body h3 {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .project-body p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-grey);
+            margin: 0;
+        }
+
+        footer {
+            padding: 60px;
+            background-color: #fafafa;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            text-align: center;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 850px) {
+            .hero { padding: 40px 20px; }
+            .hero-title { font-size: 2.5rem; }
+            .container { padding: 0 20px; }
+            .grid-2, .project-row, .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .lead-text { font-size: 1.25rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Vaishnavi Pulavarthi</h1>
-        <p>Firmware Engineer | MS in Electrical & Computer Engineering</p>
-        <div class="contact-links">
-            <a href="mailto:vaishnavi.ln119@gmail.com">Email</a> | 
-            <a href="https://www.linkedin.com/in/vaishnavi-pulavarthi">LinkedIn</a>
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Vaishnavi Pulavarthi <span class="smile-emoji">😊</span>
+            </h1>
+            <p class="hero-subtitle">Firmware Engineer | MS in Electrical & Computer Engineering</p>
+            <div class="hero-cta">
+                <a href="mailto:vaishnavi.ln119@gmail.com" class="btn">Email</a>
+                <a href="https://www.linkedin.com/in/vaishnavi-pulavarthi" target="_blank" class="link-secondary">LinkedIn</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p> I am an engineer who enjoys learning. I had the opportunity to work across disciplines and had the opportunity to work on buidling software, managing the software lifecycle, designing PCB boards, and programming them for imaging systems. </p>
+    <main class="container">
+        
+        <!-- ABOUT EXPOSITION -->
+        <section class="section grid-2" id="about">
+            <div class="section-label">01 // About Me</div>
+            <div class="section-content">
+                <p class="lead-text">
+                    I am an engineer who enjoys learning. I had the opportunity to work across disciplines and had the opportunity to work on building software, managing the software lifecycle, designing PCB boards, and programming them for imaging systems.
+                </p>
+            </div>
         </section>
 
-        <section id="skills">
-            <h2>Technical Expertise</h2>
-            <div class="skills-container">
+        <!-- TECHNICAL EXPERTISE GRID -->
+        <section class="section grid-2" id="skills">
+            <div class="section-label">02 // Technical Expertise</div>
+            <div class="skills-grid">
                 <div class="skill-category">
-                    <h3> Programming Languages</h3>
-                    <p>C/C++, Embedded C, Python, MATLAB, C#, Verilog HDL, Shell Scripting </p>
+                    <h3>Programming Languages</h3>
+                    <p>C/C++, Embedded C, Python, MATLAB, C#, Verilog HDL, Shell Scripting</p>
+                </div>
                 <div class="skill-category">
                     <h3>Microcontrollers used</h3>
                     <p>STM32(STM32F103C8T6, STM32F469VET6, STM32F407VET6) boards, Arduino Nano ESP32, FreeRTOS in STM32 projects, PCB Design (Altium)</p>
                 </div>
                 <div class="skill-category">
                     <h3>FPGA used</h3>
-                    <p>Lattice FPGA LIFCL-40 </p>
+                    <p>Lattice FPGA LIFCL-40</p>
+                </div>
                 <div class="skill-category">
                     <h3>Communication Protocols</h3>
-                    <p>SPI, I2C and UART </p>
-                <div class="skill-category">
+                    <p>SPI, I2C and UART</p>
+                </div>
+                <div class="skill-category" style="grid-column: span 2;">
                     <h3>Tools and Software</h3>
-                    <p>CubeMX and CubeIDE for STM32 projects, Visual Studio, Visual Studio Code, PyCharm for scripting, Arduino IDE, GoldMine, HARM for assertion generation, .tcl scripts using JasperGold, Jenkins, IBM  </p>
+                    <p>CubeMX and CubeIDE for STM32 projects, Visual Studio, Visual Studio Code, PyCharm for scripting, Arduino IDE, GoldMine, HARM for assertion generation, .tcl scripts using JasperGold, Jenkins, IBM</p>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Featured Work</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <span class="tag">C# / Computer Vision</span>
-                    <h3>3D Depth Estimation & Live Imaging</h3>
-                    <p>Developed real-time imaging software in C# utilizing deep learning (MiDaS) for depth estimation and YOLO for object detection. Optimized ISP parameters and deployed ONNX models for GPU inference.</p>
+        <!-- FEATURED WORK LIST LAYER -->
+        <section class="section" id="projects">
+            <div class="section-label" style="margin-bottom: 40px;">03 // Featured Work</div>
+            
+            <div class="project-list">
+                <div class="project-row">
+                    <div class="project-meta">
+                        <span class="tag">C# / Computer Vision</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>3D Depth Estimation & Live Imaging</h3>
+                        <p>Developed real-time imaging software in C# utilizing deep learning (MiDaS) for depth estimation and YOLO for object detection. Optimized ISP parameters and deployed ONNX models for GPU inference.</p>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <span class="tag">PCB / Firmware</span>
-                    <h3>Motorized Camera Module Design</h3>
-                    <p>Designed a custom PCB for camera modules featuring motorized Pan-Zoom-Focus. Programmed STM32 microcontrollers to handle I2C communication and LCD live-video display.</p>
+                <div class="project-row">
+                    <div class="project-meta">
+                        <span class="tag">PCB / Firmware</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Motorized Camera Module Design</h3>
+                        <p>Designed a custom PCB for camera modules featuring motorized Pan-Zoom-Focus. Programmed STM32 microcontrollers to handle I2C communication and LCD live-video display.</p>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <span class="tag">IoT / Bluetooth</span>
-                    <h3>Indoor Positioning System</h3>
-                    <p>Engineered signal propagation circuits and algorithms using Bluetooth technology, resulting in a 7% boost in positioning accuracy.</p>
+                <div class="project-row">
+                    <div class="project-meta">
+                        <span class="tag">IoT / Bluetooth</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Indoor Positioning System</h3>
+                        <p>Engineered signal propagation circuits and algorithms using Bluetooth technology, resulting in a 7% boost in positioning accuracy.</p>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <span class="tag">CI/CD / DevOps</span>
-                    <h3>Infrastructure Automation</h3>
-                    <p>Automated operational tasks at Wells Fargo using REST APIs and Jenkins, achieving 25% faster project deployments and increasing efficiency by 5%.</p>
+                <div class="project-row">
+                    <div class="project-meta">
+                        <span class="tag">CI/CD / DevOps</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Infrastructure Automation</h3>
+                        <p>Automated operational tasks at Wells Fargo using REST APIs and Jenkins, achieving 25% faster project deployments and increasing efficiency by 5%.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 Vaishnavi Pulavarthi | Dallas, Texas </p>
+        <p>© 2026 Vaishnavi Pulavarthi | Dallas, Texas</p>
     </footer>
 
 </body>
